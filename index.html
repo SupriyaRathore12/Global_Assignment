@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Product Page - Coding Assessment</title>
+  <link rel="stylesheet" href="/Global_Assignment/style.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="product-top">
+      <div class="gallery">
+        <div class="main-image" id="mainImage" tabindex="0" aria-label="Main product image">
+          <!-- main image set by JS uses -->
+          <img src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?_gl=1*k04vfb*_ga*MjQwODkxNDg0LjE3NTcwODUzMDg.*_ga_8JE65Q40S6*czE3NjA1MjIzMDYkbzIkZzEkdDE3NjA1MjI4OTYkajYkbDAkaDA." alt="Product main" id="mainImgEl" />
+        </div>
+
+        <div class="thumbnails" id="thumbnails" aria-label="Product thumbnails">
+          <!-- thumbnails inserted by JS uses -->
+        </div>
+      </div>
+
+      <aside class="product-details">
+        <h1 id="productTitle">Awesome Sneakers</h1>
+        <p class="price" id="productPrice">₹1,499</p>
+
+        <div class="variants">
+          <div class="variant-colors">
+            <label>Color</label>
+            <div id="colorSwatches" class="swatches" role="radiogroup" aria-label="Color swatches">
+              <!-- swatches by JS -->
+            </div>
+            <button id="compareColorsBtn" class="btn small">Compare Colours</button>
+          </div>
+
+          <div class="variant-sizes">
+            <label for="sizeSelect">Size</label>
+            <select id="sizeSelect" aria-label="Select size">
+              <option value="">Select size</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+            </select>
+            <button id="sizeChartBtn" class="btn small">Size Chart</button>
+          </div>
+        </div>
+
+        <div class="state-row">
+          <p id="selectedState">Selected: <span id="stateLabel">—</span></p>
+        </div>
+
+        <div class="cta-row">
+          <button id="addToCartBtn" class="btn primary">Add to Cart</button>
+          <button id="buyNowBtn" class="btn outline">Buy Now</button>
+        </div>
+
+        <!-- Bundle suggestion -->
+        <div class="bundle">
+          <h3>Buy these together</h3>
+          <div class="bundle-items">
+            <div class="bundle-item">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTar8ewAMrqJqGXxRFaHMyr5I9HZTfZ09Xw4g&s" alt="">
+              <div>
+                <p>Item A</p>
+                <span>₹499</span>
+              </div>
+            </div>
+            <div class="bundle-item">
+              <img src="data:image/jpeg;base64,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" alt="">
+              <div>
+                <p>Item B</p>
+                <span>₹799</span>
+              </div>
+            </div>
+          </div>
+          <div class="bundle-footer">
+            <div>Total: <strong id="bundleTotal">₹1,298</strong></div>
+            <button id="addBundleBtn" class="btn primary">Add Bundle to Cart</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Tabs -->
+    <section class="tabs-section">
+      <div class="tabs" role="tablist" aria-label="Product information tabs">
+        <button class="tab active" data-tab="desc">Description</button>
+        <button class="tab" data-tab="info">Product Information</button>
+        <button class="tab" data-tab="ship">Shipping Details</button>
+      </div>
+      <div class="tab-content">
+        <div id="desc" class="tab-pane active">
+          <h3>Product Description</h3>
+          <p>Comfortable, stylish sneakers perfect for everyday wear. Breathable upper, cushioned sole.</p>
+        </div>
+        <div id="info" class="tab-pane">
+          <h3>Product Information</h3>
+          <ul>
+            <li>Material: Synthetic</li>
+            <li>Made in: India</li>
+            <li>Care: Wipe with a damp cloth</li>
+          </ul>
+        </div>
+        <div id="ship" class="tab-pane">
+          <h3>Shipping Details</h3>
+          <p>Free shipping above ₹999. Delivery in 3-7 business days.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pair well with carousel -->
+    <section class="pair-section">
+      <h3>Pair well with</h3>
+      <div class="pair-row" id="pairRow" tabindex="0" aria-label="Pair well with products">
+        <!-- product cards by JS -->
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-section">
+      <h3>Related products</h3>
+      <div class="related-grid" id="relatedGrid">
+        <!-- 4 related product cards by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Size Chart Modal -->
+  <div class="modal" id="sizeChartModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-close aria-label="Close size chart">&times;</button>
+      <h2>Size Chart</h2>
+      <table class="size-table">
+        <thead><tr><th>Size</th><th>Chest (in)</th><th>Waist (in)</th></tr></thead>
+        <tbody>
+          <tr><td>S</td><td>34-36</td><td>28-30</td></tr>
+          <tr><td>M</td><td>38-40</td><td>31-33</td></tr>
+          <tr><td>L</td><td>42-44</td><td>34-36</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Compare Colors Modal -->
+  <div class="modal" id="compareModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close aria-label="Close compare colors">&times;</button>
+      <h2>Compare Colours</h2>
+      <div id="compareSwatches" class="swatch-compare">
+        <!-- swatches with checkboxes via JS -->
+      </div>
+      <div id="comparePreview" class="compare-preview">
+        <!-- selected colours preview -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/Global_Assignment/main.js"></script>
+</body>
+</html>
